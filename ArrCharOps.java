@@ -130,12 +130,12 @@ public class ArrCharOps {
     }
     public static int compareTo(String str1, String str2) {
         if (str1 == null || str2 == null) {
-            return -2; 
+            return -2; // Error case for null input
         }
     
-        
-        str1 = lowerCase(str1);
-        str2 = lowerCase(str2);
+        // Convert both strings to lowercase using ASCII values
+        str1 = toLowerCaseASCII(str1);
+        str2 = toLowerCaseASCII(str2);
     
         int len1 = str1.length();
         int len2 = str2.length();
@@ -145,10 +145,11 @@ public class ArrCharOps {
             char c2 = str2.charAt(i);
     
             if (c1 != c2) {
-                return c1 - c2;  
+                return c1 - c2;  // Return the difference in ASCII values
             }
         }
     
+        // Compare lengths if characters are the same so far
         if (len1 < len2) {
             return -1; // str1 is shorter, so it's lexicographically smaller
         } else if (len1 > len2) {
@@ -156,6 +157,27 @@ public class ArrCharOps {
         }
     
         return 0; // Both strings are equal
+    }
+    
+    public static String toLowerCaseASCII(String str) {
+        if (str == null) {
+            return ""; // Return empty string if input is null
+        }
+    
+        StringBuilder result = new StringBuilder();
+    
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+    
+            // If character is an uppercase letter (ASCII 65-90), convert to lowercase (ASCII 97-122)
+            if (c >= 'A' && c <= 'Z') {
+                c = (char) (c + 32);  // Convert to lowercase by adding 32 to the ASCII value
+            }
+    
+            result.append(c);
+        }
+    
+        return result.toString();
     }
 }    
 
