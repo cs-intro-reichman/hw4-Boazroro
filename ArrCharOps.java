@@ -107,34 +107,33 @@ public class ArrCharOps {
 
     public static String lowerCase(String str) {
         if (str == null) {
-            return ""; // Return an empty string for null input
+            return ""; 
         }
     
         StringBuilder result = new StringBuilder();
     
-        // Iterate through each character of the string
+       
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
     
-            // Check if the character is an uppercase letter (between 'A' and 'Z')
+          
             if (c >= 'A' && c <= 'Z') {
-                // Convert it to lowercase by adding 32 to its ASCII value
+                
                 c = (char) (c + 32);
             }
     
-            // Append the lowercase character to the result
             result.append(c);
         }
     
-        // Return the lowercase string
+        
         return result.toString();
     }
     public static int compareTo(String str1, String str2) {
         if (str1 == null || str2 == null) {
-            return -2; // Error case for null input
+            return -2; 
         }
     
-        // Use the built-in toLowerCase method
+        
         str1 = str1.toLowerCase();
         str2 = str2.toLowerCase();
     
@@ -146,17 +145,17 @@ public class ArrCharOps {
             char c2 = str2.charAt(i);
     
             if (c1 != c2) {
-                return c1 - c2;  // Return the difference in Unicode values
+                return c1 - c2;  
             }
         }
     
         if (len1 < len2) {
-            return -1; // str1 is shorter, so it's lexicographically smaller
+            return -1; 
         } else if (len1 > len2) {
-            return 1; // str1 is longer, so it's lexicographically greater
+            return 1;
         }
     
-        return 0; // Both strings are equal
+        return 0;
     }
     
 }
