@@ -21,6 +21,7 @@ public class Prime {
             }
         }
 
+        System.out.println("Prime numbers up to " + N + ":");
         for (int i = 2; i <= N; i++) {
             if (primenums[i]) {
                 System.out.println(i);
@@ -28,8 +29,8 @@ public class Prime {
             }
         }
 
-        System.out
-                .println("There are " + counter + " primes between 2 and " + N + " " + "(" + (counter * 100) / N + "% are primes)" );
-
+        // הדפסת מספר הראשוניים והאחוז
+        System.out.println(
+                "There are " + counter + " primes between 2 and " + N + " (" + (counter * 100) / N + "% are primes)");
     }
 }
