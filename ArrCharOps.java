@@ -105,36 +105,60 @@ public class ArrCharOps {
         return hash;
     }
 
-    public static int compareTo(String str1, String str2) {
-        if (str1 == null || str2 == null) {
-            return -2; // Error case for null input, but you can change this if needed.
+    public static String lowerCase(String str) {
+        if (str == null) {
+            return ""; // Return an empty string for null input
         }
     
+        StringBuilder result = new StringBuilder();
     
-        str1 = str1.toLowerCase();  
+        // Iterate through each character of the string
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+    
+            // Check if the character is an uppercase letter (between 'A' and 'Z')
+            if (c >= 'A' && c <= 'Z') {
+                // Convert it to lowercase by adding 32 to its ASCII value
+                c = (char) (c + 32);
+            }
+    
+            // Append the lowercase character to the result
+            result.append(c);
+        }
+    
+        // Return the lowercase string
+        return result.toString();
+    }
+    public static int compareTo(String str1, String str2) {
+        if (str1 == null || str2 == null) {
+            return -2; // Error case for null input
+        }
+    
+        // Use the built-in toLowerCase method
+        str1 = str1.toLowerCase();
         str2 = str2.toLowerCase();
     
         int len1 = str1.length();
         int len2 = str2.length();
     
-      
         for (int i = 0; i < Math.min(len1, len2); i++) {
             char c1 = str1.charAt(i);
             char c2 = str2.charAt(i);
     
             if (c1 != c2) {
-                return c1 - c2;  
+                return c1 - c2;  // Return the difference in Unicode values
             }
         }
     
-       
         if (len1 < len2) {
-            return -1;
+            return -1; // str1 is shorter, so it's lexicographically smaller
         } else if (len1 > len2) {
-            return 1; 
+            return 1; // str1 is longer, so it's lexicographically greater
         }
     
-        return 0; 
+        return 0; // Both strings are equal
     }
     
 }
+    
+
