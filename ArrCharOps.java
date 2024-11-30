@@ -105,80 +105,29 @@ public class ArrCharOps {
         return hash;
     }
 
-    public static String lowerCase(String str) {
-        if (str == null) {
-            return ""; 
-        }
-    
-        StringBuilder result = new StringBuilder();
-    
-       
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-    
-          
-            if (c >= 'A' && c <= 'Z') {
-                
-                c = (char) (c + 32);
-            }
-    
-            result.append(c);
-        }
-    
-        
-        return result.toString();
-    }
-    
-    public static String toLowerCaseASCII(String str) {
-        if (str == null) {
-            return ""; // Return empty string if input is null
-        }
-    
-        StringBuilder result = new StringBuilder();
-    
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-    
-            // If character is an uppercase letter (ASCII 65-90), convert to lowercase (ASCII 97-122)
-            if (c >= 'A' && c <= 'Z') {
-                c = (char) (c + 32);  // Convert to lowercase by adding 32 to the ASCII value
-            }
-    
-            result.append(c);
-        }
-    
-        return result.toString();
-    }
-    public static int compareTo(String str1, String str2) {
-        if (str1 == null || str2 == null) {
-            return -2; // Error case for null input
-        }
-    
-        // Convert both strings to lowercase using ASCII values
-        str1 = toLowerCaseASCII(str1);
-        str2 = toLowerCaseASCII(str2);
-    
-        int len1 = str1.length();
-        int len2 = str2.length();
-    
-        for (int i = 0; i < Math.min(len1, len2); i++) {
-            char c1 = str1.charAt(i);
-            char c2 = str2.charAt(i);
-    
-            if (c1 != c2) {
-                return c1 - c2;  // Return the difference in ASCII values
-            }
-        }
-    
-        // If strings are equal so far, check lengths
-        if (len1 < len2) {
-            return -1; // str1 is lexicographically smaller (shorter length)
-        } else if (len1 > len2) {
-            return 1;  // str1 is lexicographically greater (longer length)
-        }
-    
-        return 0; // Strings are equal
-    }
-    
-}    
+   
 
+    public static int compareTo(String str1, String str2) {
+        if (str1 == null || str2==null || str1.length() == 0  || str2.length() == 0) {
+            
+            
+            
+            return -2;
+        }
+        for (int i = 0; i < str1.length() && i < str2.length(); i++) {
+            if (str1.charAt(i) < str2.charAt(i)) {
+                return -1;
+            } else if (str1.charAt(i) > str2.charAt(i)){
+                return 1;
+            }
+        }
+        if (str1.length() < str2.length()) {
+            return -1;
+        } else if (str1.length() > str2.length()) 
+        {
+            return 1;
+        }
+
+        return 0;
+    }
+}
