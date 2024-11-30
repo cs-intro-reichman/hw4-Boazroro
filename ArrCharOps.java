@@ -86,15 +86,13 @@ public class ArrCharOps {
     }
 
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-        if (beginIndex < 0 || endIndex > arr.length || beginIndex > endIndex) {
-            throw new IllegalArgumentException("Invalid subarray indices");
-        }
         char[] subing = new char[endIndex - beginIndex];
         for (int i = 0; i < subing.length; i++) {
-            subing[i] = arr[beginIndex + i];
+            subing[i] = arr[i + beginIndex];
         }
         return subing;
     }
+    
 
     public static long hashCode(char[] arr) {
         long hash = 0;
