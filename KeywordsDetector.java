@@ -1,5 +1,7 @@
 public class KeywordsDetector {
+
     public static void main(String[] args) {
+
         String[] sentences = {
                 "Our product will transform the market",
                 "Programming is both painful and engaging",
@@ -13,23 +15,22 @@ public class KeywordsDetector {
                 "Our new technology presents a significant paradigm shift",
                 "Effective presentations must be clear, concise, and humble"
         };
-      
-        String[] keywords = { "synergy", "disrupt", "leverage", "Paradigm", "transform" };
+
+        String[] keywords = { "synergy", "disrupt", "leverage", "paradigm", "transform" };
+
         detectAndPrint(sentences, keywords);
     }
 
     public static void detectAndPrint(String[] sentences, String[] keywords) {
         for (int i = 0; i < sentences.length; i++) {
-            String sentence = sentences[i]; 
+            String sentence = sentences[i];
 
-            
             for (int j = 0; j < keywords.length; j++) {
-                String keyword = keywords[j]; 
+                String keyword = keywords[j];
 
-               
                 if (sentence.toLowerCase().contains(keyword.toLowerCase())) {
-                    System.out.println("Bullshit detected: " + sentence);
-                    break; 
+                    System.out.println(sentence);
+                    break;
                 }
             }
         }
