@@ -134,8 +134,8 @@ public class ArrCharOps {
         }
     
         
-        str1 = str1.toLowerCase();
-        str2 = str2.toLowerCase();
+        str1 = lowerCase(str1);
+        str2 = lowerCase(str2);
     
         int len1 = str1.length();
         int len2 = str2.length();
@@ -150,14 +150,12 @@ public class ArrCharOps {
         }
     
         if (len1 < len2) {
-            return -1; 
+            return -1; // str1 is shorter, so it's lexicographically smaller
         } else if (len1 > len2) {
-            return 1;
+            return 1; // str1 is longer, so it's lexicographically greater
         }
     
-        return 0;
+        return 0; // Both strings are equal
     }
-    
-}
-    
+}    
 
