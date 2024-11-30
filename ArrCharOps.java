@@ -107,27 +107,34 @@ public class ArrCharOps {
 
     public static int compareTo(String str1, String str2) {
         if (str1 == null || str2 == null) {
-            return -2; // Error case for null input
+            return -2; // Error case for null input, but you can change this if needed.
         }
-
+    
+    
+        str1 = str1.toLowerCase();  
+        str2 = str2.toLowerCase();
+    
         int len1 = str1.length();
         int len2 = str2.length();
-
+    
+      
         for (int i = 0; i < Math.min(len1, len2); i++) {
             char c1 = str1.charAt(i);
             char c2 = str2.charAt(i);
-
+    
             if (c1 != c2) {
-                return c1 - c2;
+                return c1 - c2;  
             }
         }
-
+    
+       
         if (len1 < len2) {
             return -1;
         } else if (len1 > len2) {
-            return 1;
+            return 1; 
         }
-
-        return 0;
+    
+        return 0; 
     }
+    
 }
