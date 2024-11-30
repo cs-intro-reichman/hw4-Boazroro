@@ -128,36 +128,6 @@ public class ArrCharOps {
         
         return result.toString();
     }
-    public static int compareTo(String str1, String str2) {
-        if (str1 == null || str2 == null) {
-            return -2; // Error case for null input
-        }
-    
-        // Convert both strings to lowercase using ASCII values
-        str1 = toLowerCaseASCII(str1);
-        str2 = toLowerCaseASCII(str2);
-    
-        int len1 = str1.length();
-        int len2 = str2.length();
-    
-        for (int i = 0; i < Math.min(len1, len2); i++) {
-            char c1 = str1.charAt(i);
-            char c2 = str2.charAt(i);
-    
-            if (c1 != c2) {
-                return c1 - c2;  // Return the difference in ASCII values
-            }
-        }
-    
-        // Compare lengths if characters are the same so far
-        if (len1 < len2) {
-            return -1; // str1 is shorter, so it's lexicographically smaller
-        } else if (len1 > len2) {
-            return 1; // str1 is longer, so it's lexicographically greater
-        }
-    
-        return 0; // Both strings are equal
-    }
     
     public static String toLowerCaseASCII(String str) {
         if (str == null) {
@@ -179,5 +149,36 @@ public class ArrCharOps {
     
         return result.toString();
     }
+    public static int compareTo(String str1, String str2) {
+        if (str1 == null || str2 == null) {
+            return -2; // Error case for null input
+        }
+    
+        // Convert both strings to lowercase using ASCII values
+        str1 = toLowerCaseASCII(str1);
+        str2 = toLowerCaseASCII(str2);
+    
+        int len1 = str1.length();
+        int len2 = str2.length();
+    
+        for (int i = 0; i < Math.min(len1, len2); i++) {
+            char c1 = str1.charAt(i);
+            char c2 = str2.charAt(i);
+    
+            if (c1 != c2) {
+                return c1 - c2;  // Return the difference in ASCII values
+            }
+        }
+    
+        // If strings are equal so far, check lengths
+        if (len1 < len2) {
+            return -1; // str1 is lexicographically smaller (shorter length)
+        } else if (len1 > len2) {
+            return 1;  // str1 is lexicographically greater (longer length)
+        }
+    
+        return 0; // Strings are equal
+    }
+    
 }    
 
